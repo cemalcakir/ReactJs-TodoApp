@@ -1,38 +1,116 @@
-.App {
-  text-align: center;
+/* GENERAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  text-decoration: none;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  display: grid;
+  justify-content: center;
+  background-color: #c4a077;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+/* HEADER.JS */
+
+header {
+  border-bottom: 3px solid saddlebrown;
+  margin-top: 5em;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.line {
+  padding: 1em;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+#list {
+  margin-left: 2em;
+  width: 7em;
+  height: 35px;
+  float: right;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+#addTodo {
+  width: 30em;
+  height: 2em;
+  margin: 5px;    
 }
+
+.btn {
+  width: 2em;
+  height: 2em;
+  border-radius: 10%;
+}
+
+.addBtn {
+  background: #3C7891;
+}
+
+/* TODOLIST.JS */
+
+main {
+  margin-top: 1em;
+  width: 60em;
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  height: 2em;
+  border-bottom: 1px solid saddlebrown;
+  padding: 2em 0 2em 0;
+}
+
+.buttons {
+  margin-left: auto;
+}
+
+.deleteBtn {
+  background: #BD271E;
+  margin-left: 4px;
+}
+
+.editBtn {
+  background: #8723A6;
+}
+
+.checkbox {
+  background: #ccc;
+}
+
+.values {
+  margin-left: 1em;
+  display: flex;
+}
+
+.values h3 {
+  max-width: 60em;
+  text-overflow: ellipsis;
+}
+
+
+.date {
+  margin-left: 1em;
+  font-size: 12px;
+}
+
+.editTodo {
+  position: absolute;
+  margin-left: 3em;
+  width: 33em;
+  height: 2em;
+}
+
+.hidden {
+  display: none;
+}
+
+.green {
+  color: #10735D;
+}
+

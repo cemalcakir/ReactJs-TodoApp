@@ -1,25 +1,46 @@
-import logo from './logo.svg';
 import './App.css';
+import Header from './components/Header';
+import TodoList from './components/TodoList';
+import React, {useState, useEffect} from 'react';
 
 function App() {
+  const [todos, setTodos] = useState([]);
+  const [filter, setFilter] = useState("");
+
+  useEffect(() => {
+    getTodos();
+  }, []);
+
+  useEffect(() => {
+    saveTodos();
+  }, [todos]);
+
+
+  function getTodos() {
+    const localTodos = localStorage.getItem("todos");
+    if (localTodos !== null) {
+      setTodos(JSON.parse(localTodos));
+    };
+  }
+
+  function saveTodos() {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  }
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Header todos={todos} setTodos={setTodos} 
+              filter={filter} setFilter={setFilter} ></Header>
+      {todos.filter(element => ((element.completed === filter) || (filter === ""))).map(todo => {
+          return <TodoList 
+          todos={todos} 
+          setTodos={setTodos} 
+          todo={todo} 
+          index={todos.indexOf(todo)} 
+          key={todos.indexOf(todo)} />
+      })}
     </div>
   );
-}
+};
 
 export default App;
